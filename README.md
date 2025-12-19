@@ -1,5 +1,5 @@
-- 👋 Hi, I’m @Phoenox (aka Thomas Eggerling), a C# software developer living in Karlsruhe.
-- 👀 I’m interested in development of desktop applications using Clean Code, although I also dabbled in soft realtime algorithms.
+- 👋 Hi, I’m @Phoenox (aka Thomas Eggerling), a C# software developer living in Oldenburg.
+- 👀 I’m interested in development using Clean Code.
 - 🌱 I’m currently learning Blazor and taking a hike in web development in general.
 - 💞️ I'm a firm advocate of clean code development. Check out this site if you'd like to know more: https://clean-code-developer.com
 - 📫 You can reach me via mail.  
