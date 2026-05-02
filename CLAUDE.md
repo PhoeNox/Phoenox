@@ -60,6 +60,10 @@ Commit messages must follow this structure:
 
 The *what* is visible in the diff; the *why* is what the commit message exists to capture. You may skip the body for small changes.
 
+## Git Workflow
+
+Always commit directly to `main`. Do not create feature branches or pull requests unless explicitly asked.
+
 ## Communication Style — Deanthropomorphized Output
 
 All output visible to the user must avoid language that implies human qualities, inner experience, or social personality. Express analysis and results cleanly and impersonally.
