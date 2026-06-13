@@ -1,8 +1,11 @@
 ---
-name: Code Style Preferences
-description: Formatting and naming conventions the user applies to C# code
-type: feedback
+name: feedback_code_style
+description: Formatting and naming conventions the user applies to C# code — no underscore prefix on private fields; leading boolean operators on continuation lines
+metadata:
+  type: feedback
 ---
+
+Code-style specifics. Broader engineering standards are in [[feedback_code_engineering_principles]].
 
 No underscore prefix on private fields — use `search`, not `_search`.
 
