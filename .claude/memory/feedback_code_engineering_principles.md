@@ -57,6 +57,14 @@ dispatcher.Dispatch(signal);
 
 Use comments sparingly, if at all. Well-named variables and methods should make intent self-evident. The reasoning behind a decision belongs in the git commit message, not inline.
 
+When a comment feels needed, first rename the method/class/variable so the name itself carries that meaning; only if no name can express it does a comment earn its place. Doc-block summaries restating a well-named function's behavior, and module-header prose explaining the domain, count as violations — not just line comments.
+
+Never reference issue-tracker items or ADR/decision documents in code comments (e.g. `(issue 0001)`, `(ADR-0003)`). The same applies to commit messages — see the Git Commit Messages section.
+
+**Why:** such references rot as trackers and docs evolve; the docs themselves carry the traceability. Names are read at every call site, comments only at the definition — renaming scales, commenting doesn't. (Feedback 2026-07-02; repeated 2026-07-04 after a module shipped with per-function doc blocks, a long module header, and `(issue 0012)` refs.)
+
+**How to apply:** before writing any comment, try to express it via renaming instead. If a constraint truly cannot live in a name, state it directly in its own words — never by pointing at an issue or ADR. Review the diff for accumulated doc blocks before reporting.
+
 ## Error Handling Philosophy
 
 Follow the "trust boundary" model of error handling — defensive programming beyond system boundaries is considered harmful because it pollutes code and obscures intent.
@@ -77,3 +85,9 @@ Commit messages must follow this structure:
 3. A short explanation of **why** the change was made (the body).
 
 The *what* is visible in the diff; the *why* is what the commit message exists to capture. You may skip the body for small changes.
+
+Never reference issue-tracker items or ADR/decision documents in commit messages (e.g. `Closes .scratch/.../0003`, `per ADR-0006`).
+
+**Why:** same rot problem as in code comments — issues get archived and ADRs renumbered, and the message should stand on its own. (Feedback 2026-07-02, after a commit body cited an ADR and closed an issue by path.)
+
+**How to apply:** state the *why* in the message's own words; leave issue closing and ADR linkage to the tracker files and docs themselves.

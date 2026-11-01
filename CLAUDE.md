@@ -16,9 +16,12 @@ All output visible to the user must avoid language that implies human qualities,
 
 ## Code & Engineering Standards
 
-Engineering and code-style standards are kept in memory, not here, so they load contextually for coding tasks rather than consuming always-on context in every session. Recall and apply them whenever writing or editing code:
+Engineering and code-style standards live in global memory at `~/.claude/memory/`, which is **not** auto-loaded. Before writing or editing code, Read these files:
 
-- `feedback_code_engineering_principles` — IOSP, KISS/YAGNI, separate domain logic from I/O, no inline construction in arguments, sparse comments, fail-fast error handling at trust boundaries, git commit message structure.
-- `feedback_code_style` — C# naming and formatting conventions.
+- `~/.claude/memory/feedback_code_engineering_principles.md` — IOSP, KISS/YAGNI, separate domain logic from I/O, no inline construction in arguments, sparse comments, fail-fast error handling at trust boundaries, git commit message structure.
+- `~/.claude/memory/feedback_code_style.md` — naming and formatting conventions.
+- `~/.claude/memory/feedback_no_prettier.md` — format by hand to match the surrounding code; lint with ESLint only.
 
-See `feedback_placement_rules` for what belongs in this file versus in memory.
+**Always-on implementation rule:** after implementing, STOP and report. Never run tests, lint, typecheck, builds, or end-to-end verification (including the /verify skill or driving the app) — verification is the user's part. Sole exception: an explicit TDD request (`/tdd`) allows running single targeted tests inside the red→green loop. Never commit without explicit approval. Details: `~/.claude/memory/feedback_post_implementation_handoff.md`.
+
+See `~/.claude/memory/feedback_placement_rules.md` for what belongs in this file versus in memory.
