@@ -80,7 +80,7 @@ ncal.py slots --from tomorrow --to +14d --duration 90m --workday 09:00-17:00 --d
 
 ## Working rules
 
-- Resolve "next Tuesday", "in two weeks" against the real current date first — use the `current-time` skill, do not assume.
+- Resolve "next Tuesday", "in two weeks" against the real current date first: run `date "+%F %A %H:%M %Z"`.
 - Before any create, update or delete: state calendar, title, and exact start/end, and get explicit confirmation. `--yes` is required for deletes; never add it pre-emptively.
 - Find UIDs with `events --json` or `tasks --json`; never invent one.
 - Recurring events: `event-update` and `event-delete` act on the whole series, not one occurrence. Say so before touching a recurring item.
