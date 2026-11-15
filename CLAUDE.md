@@ -16,12 +16,12 @@ All output visible to the user must avoid language that implies human qualities,
 
 ## Code & Engineering Standards
 
-Engineering and code-style standards live in global memory at `~/.claude/memory/`, which is **not** auto-loaded. Before writing or editing code, Read these files:
+Engineering and code-style standards live in global memory at `~/.claude/memory/`, which is **not** auto-loaded. A repo with a `CODING_STANDARDS.md` applies them at review instead; skip this read there. Elsewhere, before writing or editing code, Read these files:
 
 - `~/.claude/memory/feedback_code_engineering_principles.md` — IOSP, KISS/YAGNI, separate domain logic from I/O, no inline construction in arguments, sparse comments, fail-fast error handling at trust boundaries, git commit message structure.
 - `~/.claude/memory/feedback_code_style.md` — naming and formatting conventions.
-- `~/.claude/memory/feedback_no_prettier.md` — format by hand to match the surrounding code; lint with ESLint only.
+- `~/.claude/memory/feedback_no_prettier.md` — format by hand to match the surrounding code; lint with ESLint only (oxlint where typescript-eslint cannot parse the project's TypeScript, e.g. TS 7).
 
-**Always-on implementation rule:** after implementing, STOP and report. Never run tests, lint, typecheck, builds, or end-to-end verification (including the /verify skill or driving the app) — verification is the user's part. Sole exception: an explicit TDD request (`/tdd`) allows running single targeted tests inside the red→green loop. Never commit without explicit approval. Details: `~/.claude/memory/feedback_post_implementation_handoff.md`.
+**Always-on implementation rule:** after implementing, STOP and report. Never run tests, lint, typecheck, builds, or end-to-end verification (including the /verify skill or driving the app) — verification is the user's part. Sole exception: an explicit TDD request (`/mattpocock-skills:tdd`) allows running single targeted tests inside the red→green loop. Never commit without explicit approval. Close a ticket (status `done` and checkboxes ticked, or the tracker's equivalent) only after the approved commit that completes it succeeds: the user's approval plus the passing hook are its verification. A repo's pre-commit hook running checks on an approved `git commit` is the user's guardrail; a failing hook gets fixed and the commit retried. Details: `~/.claude/memory/feedback_post_implementation_handoff.md`.
 
 See `~/.claude/memory/feedback_placement_rules.md` for what belongs in this file versus in memory.
